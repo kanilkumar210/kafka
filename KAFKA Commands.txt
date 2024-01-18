@@ -1,0 +1,34 @@
+to start zookeeper
+
+
+--->C:\kafka_2.13-3.6.1>.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+to start kafka server
+
+
+---->  C:\kafka_2.13-3.6.1>.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+
+to see kafka console 
+
+---->  C:\kafka_2.13-3.6.1>bin\windows\kafka-console-consumer.bat --topic location-update-topic --from-beginning --bootstrap-server localhost:9092
+
+
+appliaction.properties in producers
+
+---->  # Kafka Producer Configuration
+spring.kafka.producer.bootstrap-servers=localhost:9092
+spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.value-serializer=org.apache.kafka.common.serialization.StringSerializer
+#spring.kafka.produceracks=all
+
+
+
+application.properties in consumers
+
+----->  # Kafka Consumer Configuration
+spring.kafka.consumer.bootstrap-servers=localhost:9092
+spring.kafka.consumer.group-id=group-1
+spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.consumer.auto-offset-reset=earliest
